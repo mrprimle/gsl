@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply text-dark leading-relaxed text-sm font-normal tracking-normal antialiased;
+  }
+
+  h1 {
+    @apply font-semibold leading-tight tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold leading-tight tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  h4 {
+    @apply text-lg font-semibold;
+  }
+
+  a {
+    @apply no-underline outline-none;
+  }
+
+  img {
+    @apply border-none align-top max-w-full h-auto;
+  }
+
+  ul {
+    @apply list-none;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-28 px-6 md:px-8;
+  }
+
+  /* Neumorphism card */
+  .card-neu {
+    @apply border border-[#F4F5F6] rounded-[32px] p-3 bg-[#F4F5F680];
+  }
+  .card-neu-inner {
+    @apply bg-white rounded-[24px] p-6 md:p-8 h-full shadow-[0px_0px_12px_0px_rgba(0,0,0,0.08)];
+  }
+
+  /* Glassmorphism card */
+  .card-glass {
+    @apply bg-white/[0.04] border border-white/[0.08] rounded-3xl p-6 md:p-8 backdrop-blur-sm;
+  }
+
+  /* Dark section with rounded top */
+  .section-dark-top {
+    @apply bg-dark rounded-t-[2.5rem] md:rounded-t-[3rem];
+  }
+
+  /* White section with rounded top */
+  .section-light-top {
+    @apply bg-white rounded-t-[2.5rem] md:rounded-t-[3rem];
+  }
+}
+
+/* Animated gradient text — purple to blue */
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    #8b5cf6 0%,
+    #6366f1 20%,
+    #3b82f6 40%,
+    #6366f1 60%,
+    #8b5cf6 80%,
+    #6366f1 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-snake 32s linear infinite;
+}
+
+/* Animated gradient text — red */
+.gradient-text-animated-red {
+  background: linear-gradient(
+    90deg,
+    #ef4444 0%,
+    #dc2626 20%,
+    #f87171 40%,
+    #dc2626 60%,
+    #ef4444 80%,
+    #dc2626 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-snake 32s linear infinite;
+}
+
+/* Animated gradient text — teal to blue */
+.gradient-text-animated-teal {
+  background: linear-gradient(
+    90deg,
+    #5eead4 0%,
+    #4ae0c8 10%,
+    #3dd6bc 20%,
+    #38c9b4 30%,
+    #3bb8c0 40%,
+    #3ea6cc 50%,
+    #4094d8 60%,
+    #4282e4 70%,
+    #3b82f6 80%,
+    #4a9ae8 90%,
+    #5eead4 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-snake 32s linear infinite;
+}
+
+@keyframes gradient-snake {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Animated gradient border button */
+.gradient-border-animated {
+  position: relative;
+  background: transparent;
+  z-index: 0;
+}
+
+.gradient-border-animated::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #8b5cf6 0%,
+    #6366f1 20%,
+    #3b82f6 40%,
+    #6366f1 60%,
+    #8b5cf6 80%,
+    #6366f1 100%
+  );
+  background-size: 200% 100%;
+  animation: gradient-snake 32s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+/* Hero dot texture */
+.hero-texture {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(59, 94, 255, 0.12) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+}
+
+/* Scrollbar hide */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fade-in animation for scroll reveals */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
